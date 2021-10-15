@@ -1,0 +1,2 @@
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,-webkit-max-content));grid-template-columns:repeat(auto-fit,minmax(200px,max-content));justify-content:center;grid-gap:1rem;gap:1rem}.card{transition:all .3s linear}.card:not(.repo):hover{background-color:#e9e7e7}.repo-link{text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.navbar-brand{outline:none}
+/*# sourceMappingURL=main.8e390ed6.chunk.css.map */
