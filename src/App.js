@@ -38,7 +38,7 @@ class App extends React.Component {
 			loading: false
 		});
 	}
-	
+
 	getRepos = async (user) => {
 		this.setState({ loading: true });
 		const API = `https://api.github.com/users/${user}/repos?sort=created?client_id=${process.env.REACT_APP_GITHUB_CLIENT_ID}&client_secret=${process.env.REACT_APP_GITHUB_CLIENT_SECRET}`;
@@ -71,29 +71,29 @@ class App extends React.Component {
 		return (
 			<Router>
 				<div className="App">
-					<Navbar 
-						title="Github Finder" 
+					<Navbar
+						title="Github Finder"
 						icon="fab fa-github"
+					/>
+					<Search
+						searchUsers={this.searchUsers}
+						clearUsers={this.clearUsers}
+						userLength={this.state.users.length ? true : false}
+						showAlert={this.showAlert}
 					/>
 					<Switch>
 						<Route exact path="/">
-							<Search
-								searchUsers={this.searchUsers}
-								clearUsers={this.clearUsers}
-								userLength={this.state.users.length ? true : false}
-								showAlert={this.showAlert}
-							/>
-							<Users 
-								users={this.state.users} 
+							<Users
+								users={this.state.users}
 								loading={this.state.loading}
 							/>
-							<Alert 
-								alert={this.state.alert} 
+							<Alert
+								alert={this.state.alert}
 							/>
 						</Route>
-						<Route 
-							exact 
-							path="/user/:login" 
+						<Route
+							exact
+							path="/user/:login"
 							render={(props) => <User {...props} getUser={this.getUser} user={this.state.user} getRepos={this.getRepos} repos={this.state.repos} loading={this.state.loading} />}>
 						</Route>
 					</Switch>
